@@ -1,0 +1,33 @@
+apply plugin: 'java'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  testCompile group: 'junit', name: 'junit', version: '4.+'
+}
+
+sourceCompatibility = 1.6
+version = '0.0.1'
+jar {
+  manifest {
+    attributes 'Implementation-Title': 'Pothead', 'Implementation-Version': version
+  }
+}
+
+test {
+  systemProperties 'property': 'value'
+}
+
+uploadArchives {
+  repositories {
+    flatDir {
+      dirs 'repos'
+    }
+  }
+}
+
+apply plugin 'eclipse'
+
+
